@@ -5,17 +5,21 @@ embeddings:
 
 llm:
   provider: "ollama"
-  model: "nemotron-3-nano:4b"
+  model: "qwen3.5:9b"
   base_url: "http://192.168.1.9:11434"
   temperature: 0.0
   num_ctx: 16384
 
 vectorstore:
   url: "http://192.168.1.9:6333"
-  collection_name: "multi_financial_docs"
+  collection_name: "health-supplements-papers"
   use_sparse: true
-  force_recreate: false
+  force_recreate: true
 
 retriever:
   search_type: "hybrid"
   top_k: 5
+  auto_filter: false
+
+metadata:
+  config_file: "metadata.yaml"
