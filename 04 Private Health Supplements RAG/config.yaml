@@ -1,0 +1,25 @@
+embeddings:
+  provider: "ollama"
+  model: "qwen3-embedding:0.6b"
+  base_url: "http://192.168.1.9:11434"
+
+llm:
+  provider: "ollama"
+  model: "qwen3.5:9b"
+  base_url: "http://192.168.1.9:11434"
+  temperature: 0.0
+  num_ctx: 16384
+
+vectorstore:
+  url: "http://192.168.1.9:6333"
+  collection_name: "health-supplements-papers"
+  use_sparse: true
+  force_recreate: true
+
+retriever:
+  search_type: "hybrid"
+  top_k: 5
+  auto_filter: false
+
+metadata:
+  config_file: "metadata.yaml"
