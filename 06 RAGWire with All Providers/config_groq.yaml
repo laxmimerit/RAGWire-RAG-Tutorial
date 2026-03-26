@@ -1,0 +1,29 @@
+embeddings:
+  provider: "huggingface"
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  model_kwargs:
+    device: "cpu"     # "cuda" for GPU, "mps" for Apple Silicon
+  encode_kwargs:
+    normalize_embeddings: true
+
+llm:
+  provider: "groq"
+  model: "qwen/qwen3-32b" 
+  api_key: "${GROQ_API_KEY}"
+
+vectorstore:
+  url: "http://192.168.1.9:6333"
+  collection_name: "rag_documents_groq"
+  use_sparse: true
+  force_recreate: false
+
+retriever:
+  search_type: "hybrid"
+  top_k: 5
+  auto_filter: false
+
+logging:
+  level: "INFO"  # "DEBUG" | "INFO" | "WARNING" | "ERROR" | "CRITICAL"
+  console_output: true  # true | false
+  colored: false  # true | false
+  log_file: "ragwire.log"

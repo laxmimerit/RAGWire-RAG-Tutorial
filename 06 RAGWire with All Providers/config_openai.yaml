@@ -1,0 +1,26 @@
+embeddings:
+  provider: "openai"
+  model: "text-embedding-3-small"
+  api_key: "${OPENAI_API_KEY}"
+
+llm:
+  provider: "openai"
+  model: "gpt-5.4-nano"
+  api_key: "${OPENAI_API_KEY}"
+
+vectorstore:
+  url: "http://192.168.1.9:6333"
+  collection_name: "rag_documents_openai"
+  use_sparse: true
+  force_recreate: false
+
+retriever:
+  search_type: "hybrid"
+  top_k: 5
+  auto_filter: false
+
+logging:
+  level: "INFO"  # "DEBUG" | "INFO" | "WARNING" | "ERROR" | "CRITICAL"
+  console_output: true  # true | false
+  colored: false  # true | false
+  log_file: "ragwire.log"
