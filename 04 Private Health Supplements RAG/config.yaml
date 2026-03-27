@@ -1,15 +1,15 @@
 embeddings:
   provider: "ollama"
   model: "qwen3-embedding:0.6b"
-  base_url: "http://192.168.1.9:11434"
+  base_url: "http://192.168.1.12:11434"
 
 llm:
   provider: "ollama"
   model: "qwen3.5:9b"
-  base_url: "http://192.168.1.9:11434"
+  base_url: "http://192.168.1.12:11434"
 
 vectorstore:
-  url: "http://192.168.1.9:6333"
+  url: "http://192.168.1.12:6333"
   collection_name: "health-supplements-papers"
   use_sparse: true
   force_recreate: true
