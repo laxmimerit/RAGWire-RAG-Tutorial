@@ -1,0 +1,37 @@
+loader:
+  extensions: [".pdf", ".docx", ".xlsx", ".pptx", ".txt", ".md"]
+
+splitter:
+  chunk_size: 10000
+  chunk_overlap: 2000
+  strategy: "markdown"  # "markdown" | "recursive"
+
+embeddings:
+  provider: "google"  # "google" | "ollama" | "openai" | "huggingface" | "fastembed"
+  model: "gemini-embedding-001"
+  api_key: "${GOOGLE_API_KEY}"
+
+llm:
+  provider: "google"  # "google" | "ollama" | "openai" | "groq" | "anthropic"
+  model: "gemini-3.1-flash-lite-preview"
+  api_key: "${GOOGLE_API_KEY}"
+
+vectorstore:
+  url: "${QDRANT_URL}"
+  collection_name: "rag_documents"
+  use_sparse: true  # true | false
+  force_recreate: false  # true | false
+  api_key: "${QDRANT_API_KEY}"
+
+retriever:
+  search_type: "mmr"  # "hybrid" | "similarity" | "mmr"
+  top_k: 5
+  auto_filter: false  # true | false
+  fetch_k: 20
+  lambda_mult: 0.5  # mmr only — 0.0 (diverse) to 1.0 (relevant)
+
+logging:
+  level: "INFO"  # "DEBUG" | "INFO" | "WARNING" | "ERROR" | "CRITICAL"
+  console_output: true  # true | false
+  colored: false  # true | false
+  log_file: "ragwire.log"
