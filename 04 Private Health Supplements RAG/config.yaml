@@ -12,7 +12,7 @@ vectorstore:
   url: "http://192.168.1.9:6333"
   collection_name: "health-supplements-papers"
   use_sparse: true
-  force_recreate: false
+  force_recreate: true
 
 retriever:
   search_type: "hybrid"
@@ -20,4 +20,4 @@ retriever:
   auto_filter: false
 
 metadata:
-  config_file: "metadata.yaml"
+  config_file: "health_metadata.yaml"
